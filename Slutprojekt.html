@@ -1,0 +1,97 @@
+<html>
+    <body>
+            <script>
+
+  
+   
+
+    // math random tillåter programmet att välja mellan ett random tal 1-100 pch då kan det vara decimaltal, med math.floor hjälper det att runda neråt till heltal
+
+    let secretNumber = Math.floor(Math.random() * 100) + 1
+
+
+
+
+    // spelarens antal försök, 0 står för hur många försök spelaren har gjort
+
+
+
+    let attempts = 0;
+
+
+
+    // Här startar spelet genom alert funktionen
+
+
+    alert("Hej jag tänker på ett nummer mellan 1 och 100. Kan du gissa vilket det är?");
+
+
+    // Spela spelet, "while" skapar en loop för spelet som gör att det inte tar slut
+
+
+    while (true) {
+
+
+
+    // ber användaren att gissa ett nummer genom funktion number, prompt visar en dialog ruta där användaren har möjlighet att skriva sitt svar 
+    
+    
+    
+    let guess = Number(prompt("Din gissning:"));
+
+
+   
+    if (isNaN(guess)) { //isNaN kontrollerar inom if satsen att användarens gissning är giltigt eller inte innan den fortsätter loopen
+        alert("Vänligen ange ett giltigt nummer.");
+        continue;       // Om ogiltig, så börjar nästa iteration av loopen. 
+    }
+   
+   
+    if (guess < 1) {            // Nu hoppar den till nästa iteration av loopen om gissningen är för låg
+        alert("Din gissning är för låg! Ange ett tal mellan 1 och 100.");
+        continue; 
+    } else if (guess > 100) {
+        alert("Din gissning är för hög! Ange ett tal mellan 1 och 100.");
+        continue;               // Samma här fast ifall talet är för högt 
+    }
+    
+    
+    
+    
+    
+    
+    
+    // Funktionen gör att spelaren har mer försök på sig 
+
+    attempts++;
+
+    // Med if satsen förklarar programmet att spelarens gissning är korrekt 
+
+
+
+        if (guess === secretNumber) {           //secretnumber och attempts förklarar för avändaren att vilket nummer och hur många försök
+
+        alert("Grattis! Du gissade rätt nummer " + secretNumber + " på " + attempts + " försök.");
+        break;  // avbryter loopen eftersom spelaren gissade rätt
+    }  
+    
+    else if (guess < secretNumber) {
+        alert("För lågt! Gissa högre.");        // else if satsen ger funktionen ifall spelaren har gjort för låg eller för hög gissning 
+    } else {
+        alert("För högt! Gissa lägre.");
+    }
+
+        
+    }
+
+
+
+                 
+                    </script>
+    
+
+            
+
+
+            </body>
+</html>
